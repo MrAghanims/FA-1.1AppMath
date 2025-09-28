@@ -7,6 +7,7 @@ public class EnemyBehavior : MonoBehaviour
     public float scaleSpeed = 2f;
     public float moveSpeed = 2f;
     public float moveRange = 3f;
+    public int points = 10;
 
     private Vector3 startPos;
 
@@ -24,5 +25,10 @@ public class EnemyBehavior : MonoBehaviour
         // Move side to side
         float offset = Mathf.Sin(Time.time * moveSpeed) * moveRange;
         transform.position = startPos + new Vector3(offset, 0, 0);
+    }
+    public void KillEnemy()
+    {
+        ScoreManager.Instance.AddScore(points);
+        Destroy(gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            collision.gameObject.GetComponent<EnemyBehavior>().KillEnemy();
             Destroy(collision.gameObject); // destroy enemy
             Destroy(gameObject);           // destroy projectile
         }
